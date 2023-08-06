@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="relative overflow-x-auto">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Book name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Book Id
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Category
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    About
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Last Update
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    First Publication
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data %}
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{item.book_name}}
+                </th>
+                <td class="px-6 py-4">
+                    {{item.id}}
+                </td>
+                <td class="px-6 py-4">
+                    {{item.catagory}}
+                </td>
+                <td class="px-6 py-4">
+                    {{item.about}}
+                </td>
+                <td class="px-6 py-4">
+                    {{item.first_pub}}
+                </td>
+                <td class="px-6 py-4">
+                    {{item.last_pub}}
+                </td>
+                <td class="px-6 py-4">
+                    <button onclick="" class="text-white bg-red-600 rounded-lg px-2 py-1">DELETE</button>
+                </td>
+                <td class="px-6 py-4">
+                    <a href="{% url 'edit_book' id=item.id %}" class="text-white bg-yellow-500 rounded-lg px-2 py-1">EDIT</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+
+{% endblock %}
